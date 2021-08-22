@@ -9,7 +9,7 @@ You can see the result in [link](https://wgfa7--hiringcoders2021.myvtex.com/admi
  ### Admin Landing Page
  
  In this page, the user will can see the clients that sign up. The data is stored in the dynamodb at Amazon Aws.
- ![Main Page](https://github.com/willamys/wgfa7-support/blob/master/landing.PNG)
+ ![Main Page](https://github.com/willamys/wgfa7-admin-vtex-io/blob/master/docs/adminpage.PNG)
 
 
 ### Resources

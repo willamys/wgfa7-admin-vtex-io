@@ -1,0 +1,11 @@
+{
+  "section": "orders",
+  "titleId": "admin-example.navigation.label",
+  "searchKeyWordsHelpers": "admin-example.navigation.search.kws",
+  "subSectionItems": [
+    {
+      "labelId": "admin-example.navigation.insight",
+      "path": "/admin/iotraining"
+    }
+  ]
+}

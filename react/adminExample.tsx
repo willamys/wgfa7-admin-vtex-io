@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
-import { Layout, PageBlock, Table } from 'vtex.styleguide';
+import { FormattedMessage } from 'react-intl'
+import { Layout, PageBlock, Table, PageHeader, IconUser, Tag } from 'vtex.styleguide';
 import ClientService from './ClientService';
 
 const AdminExample: FC = () => {
@@ -7,7 +8,6 @@ const AdminExample: FC = () => {
 
   const fetchData = async () => {
     const { data } = await ClientService.getAllCliente();
-    console.log(data);
     setClientes(data.Items);
   };
 
@@ -19,34 +19,65 @@ const AdminExample: FC = () => {
   const defaultSchema = {
     properties: {
       nome: {
-        title: 'Name',
-        width: 300,
+        title: 'Name'
       },
       email: {
-        title: 'Email',
-        minWidth: 200,
+        title: 'Email'
       },
       telefone: {
-        title: 'Telefone',
-        minWidth: 100,
+        title: 'Telefone'
+      },
+      tipo: {
+        id: 'tipo',
+        title: 'Status',
+        cellRenderer: ({ cellData }: any) => <Status tipo={cellData} />,
       },
     },
   }
 
-  return <Layout>
-    <PageBlock title=""
-      variation="full">
-      <h1>Admin Landing</h1>
+  function Status({ tipo }: any) {
+    const type = tipo === 'prospecto' ? 'success' : 'neutral'
+    return <Tag type={type}>{tipo}</Tag>
+  }
+
+  function countType(type: any) {
+    const countTypes = clientes.filter(item => item.tipo === type);
+    return countTypes.length;
+  }
+
+  return <Layout
+    pageHeader={
+      <PageHeader
+        title={<FormattedMessage id="leadpage.title" />}
+      />
+    }
+  >
+    <PageBlock variation="full">
       <div className="container">
-        <div className="container">
-          <h3>Todos os Clientes</h3>
-          <Table
-            fullWidth
-            schema={defaultSchema}
-            items={clientes}
-            density="high"
-          />
-        </div>
+        <Table
+          fullWidth
+          schema={defaultSchema}
+          items={clientes}
+          density="high"
+          totalizers={[
+            {
+              label: 'Total',
+              value: clientes.length,
+            },
+            {
+              label: 'Leads',
+              value: countType('cliente'),
+              iconBackgroundColor: '#ebebeb',
+              icon: <IconUser color="#79899" size={14} />,
+            },
+            {
+              label: 'Prospects',
+              value: countType('prospecto'),
+              iconBackgroundColor: '#eafce3',
+              icon: <IconUser color="#79B03A" size={14} />,
+            },
+          ]}
+        />
       </div>
     </PageBlock>
   </Layout >

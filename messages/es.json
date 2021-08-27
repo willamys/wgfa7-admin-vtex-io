@@ -2,5 +2,6 @@
   "admin-example.navigation.label": "Admin Landing",
   "admin-example.navigation.search.kws": "landing, clientes",
   "admin-example.navigation.insight": "Clientes",
-  "admin-example.navigation.management": "Gerenciamiento"
+  "admin-example.navigation.management": "Gerenciamiento",
+  "leadpage.title": "Admin Landing"
 }

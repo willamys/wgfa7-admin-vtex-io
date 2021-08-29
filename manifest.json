@@ -18,6 +18,23 @@
   "registries": [
     "smartcheckout"
   ],
-  "policies": [],
+  "policies": [
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "name": "colossus-write-logs"
+    },
+    {
+      "name": "graphql-query"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "2rfmtwqnye.execute-api.us-east-1.amazonaws.com",
+        "path": "*"
+      }
+    }
+  ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

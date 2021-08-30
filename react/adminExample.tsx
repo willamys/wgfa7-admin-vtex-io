@@ -7,33 +7,28 @@ import { FormattedMessage } from 'react-intl';
 const AdminExample: FC = () => {
 
   const { loading, data } = useQuery(ALL_CLIENTES);
+
   console.log(data);
   const defaultSchema = {
     properties: {
       nome: {
         title: 'Nome',
-        width: 300,
       },
       email: {
         title: 'Email',
-        minWidth: 200,
       },
       telefone: {
         title: 'Telefone',
-        minWidth: 100,
       },
       tipo: {
         title: 'Tipo',
-        minWidth: 100,
         cellRenderer: ({ cellData }: any) => <Status tipo={cellData} />,
       },
       created_at: {
         title: 'Created At',
-        minWidth: 100,
       },
       updated_at: {
         title: 'Updated At',
-        minWidth: 100,
       }
     },
   }
@@ -43,12 +38,6 @@ const AdminExample: FC = () => {
     return <Tag type={type}>{tipo}</Tag>
   }
 
-  // function countType(type: any) {
-  //   /*ARRUMAR WILL PFV - Se possível retornar do GRAPHQL
-  //   OBEJTIVO DESTA CHAMADA É RETORNAR O TOTAL DE USUARIOS CADASTRADOS POR TIPO lead ou prospect */
-  //   const countTypes = data.find(lead => lead.tipo === type);
-  //   return countTypes;
-  // }
   return <>
     <Layout
       pageHeader={

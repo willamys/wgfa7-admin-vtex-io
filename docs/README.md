@@ -38,8 +38,16 @@ After run:
   
 ## Links úteis
 - [VTEX Styleguide](https://styleguide.vtex.com/)
-- [React+Graphql]https://vtex.io/docs/getting-started/desenvolva-componentes-usando-vtex-io-e-react/6/)
+- [React+Graphql](https://vtex.io/docs/getting-started/desenvolva-componentes-usando-vtex-io-e-react/6/)
 - [React+Typescript+Graphql](https://www.apollographql.com/docs/react/v2/development-testing/static-typing/)
+
+
+# Recursos e Referências Externas
+
+Para a criação e execução desse projeto, foram utilizadas as seguintes aplicações:
+- [Tema da loja](https://github.com/matheusmereb/hc-corebiz-27/)
+- [Integraçao API AWS (Serviços)](https://github.com/matheusmereb/hc-corebiz-27-apis)
+- [Admin e GraphQL](#)
 
 # Colaboradores ✨
 <table>

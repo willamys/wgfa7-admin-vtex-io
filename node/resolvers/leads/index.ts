@@ -2,12 +2,14 @@ import {
   lead,
   leads,
   totalLeads,
-  leadsMock
+  totalClientes,
+  totalProspectos
 } from './leadResolvers'
 
 export const queries = {
   lead,
   leads,
   totalLeads,
-  leadsMock
+  totalClientes,
+  totalProspectos
 }

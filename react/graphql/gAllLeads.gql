@@ -1,5 +1,5 @@
-query GetAllLeads{ 
-  leads {
+ query GetAllLeads{
+  leads{
     clienteId
     nome
     email
@@ -8,4 +8,7 @@ query GetAllLeads{
     created_at
     updated_at
   }
+	totalLeads
+  totalClientes
+  totalProspectos
 }

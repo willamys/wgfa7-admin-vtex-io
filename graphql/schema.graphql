@@ -4,6 +4,8 @@ type Query {
   leadsMock(from: Int = 0, to: Int = 4): [Lead] @cacheControl(scope: PUBLIC, maxAge: SHORT)
   leads: [Lead] @cacheControl(scope: PUBLIC, maxAge: SHORT)
   totalLeads: Int
+  totalClientes: Int
+  totalProspectos: Int
 }
 
 type Mutation {

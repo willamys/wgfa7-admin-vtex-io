@@ -1,16 +1,15 @@
 interface LeadInput {
   email: string
 }
-
-export interface Lead {
-  clienteId: String
-  nome: String
-  email: String
-  telefone: String
-  tipo: String
-  created_at: String
-  updated_at: String
-}
+// interface Lead {
+//   clienteId: String
+//   nome: String
+//   email: String
+//   telefone: String
+//   tipo: String
+//   created_at: String
+//   updated_at: String
+// }
 
 export const lead = async (
   _: any,
@@ -31,8 +30,20 @@ export const leads = (
 export const totalLeads = (
   _: any,
   __: any,
-  ctx: Context
-) => ctx.clients.lead.totalLeads()
+  { clients: { lead: LeadClient } }: Context
+) => LeadClient.getAllLeads().then(res => res.length)
+
+export const totalClientes = (
+  _: any,
+  __: any,
+  { clients: { lead: LeadClient } }: Context
+) => LeadClient.getAllLeads().then(res => res.filter((x: { tipo: string; }) => x.tipo === 'cliente').length)
+
+export const totalProspectos = (
+  _: any,
+  __: any,
+  { clients: { lead: LeadClient } }: Context
+) => LeadClient.getAllLeads().then(res => res.filter((x: { tipo: string; }) => x.tipo === 'prospecto').length)
 
 interface Args {
   from: number

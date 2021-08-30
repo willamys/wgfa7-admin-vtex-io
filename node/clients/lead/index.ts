@@ -12,7 +12,7 @@ export class LeadClient extends ExternalClient {
     getlead: (email: string) => `/clientes/${email}`,
     updatelead: (email: string) => `/clientes/${email}`,
   }
-  //SE HOUVER AUTENTICAÇÃO ADICIONAR NO HEADERS 'Authorization' 
+  //SE HOUVER AUTENTICAÇÃO ADICIONAR NO HEADERS 'Authorization'
   constructor(ctx: IOContext, options?: InstanceOptions) {
     super('https://2rfmtwqnye.execute-api.us-east-1.amazonaws.com', ctx, {
       ...options,
@@ -75,6 +75,4 @@ export class LeadClient extends ExternalClient {
       },
     })
   }
-
-  public totalLeads = () => this.results.length
 }

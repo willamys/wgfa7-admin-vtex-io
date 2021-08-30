@@ -38,7 +38,7 @@ After run:
   
 ## Links úteis
 - [VTEX Styleguide](https://styleguide.vtex.com/)
-- [React+Graphql]https://vtex.io/docs/getting-started/desenvolva-componentes-usando-vtex-io-e-react/6/)
+- [React+Graphql](https://vtex.io/docs/getting-started/desenvolva-componentes-usando-vtex-io-e-react/6/)
 - [React+Typescript+Graphql](https://www.apollographql.com/docs/react/v2/development-testing/static-typing/)
 
 # Colaboradores ✨

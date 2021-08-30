@@ -1,25 +1,16 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Layout, PageBlock, Table } from 'vtex.styleguide';
-import ClientService from './ClientService';
+import ALL_CLIENTES from './graphql/gAllLeads.gql'
+import { useQuery } from 'react-apollo';
 
 const AdminExample: FC = () => {
-  const [clientes, setClientes] = useState<Array<Cliente>>([]);
 
-  const fetchData = async () => {
-    const { data } = await ClientService.getAllCliente();
-    console.log(data);
-    setClientes(data.Items);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+  const { loading, data } = useQuery(ALL_CLIENTES);
 
   const defaultSchema = {
     properties: {
       nome: {
-        title: 'Name',
+        title: 'Nome',
         width: 300,
       },
       email: {
@@ -30,26 +21,44 @@ const AdminExample: FC = () => {
         title: 'Telefone',
         minWidth: 100,
       },
+      tipo: {
+        title: 'Tipo',
+        minWidth: 100,
+      },
+      created_at: {
+        title: 'Created At',
+        minWidth: 100,
+      },
+      updated_at: {
+        title: 'Updated At',
+        minWidth: 100,
+      }
     },
   }
 
-  return <Layout>
-    <PageBlock title=""
-      variation="full">
-      <h1>Admin Landing</h1>
-      <div className="container">
+  return <>
+    <Layout >
+      <PageBlock title=""
+        variation="full">
+        <h1>Admin Landing</h1>
         <div className="container">
-          <h3>Todos os Clientes</h3>
-          <Table
-            fullWidth
-            schema={defaultSchema}
-            items={clientes}
-            density="high"
-          />
+          <div className="container">
+            <h3>Todos os Clientes</h3>
+            {loading ? (<p>Loading ...</p>) :
+              (
+                < Table
+                  fullWidth
+                  schema={defaultSchema}
+                  items={data.leads}
+                  density="high"
+                />
+              )}
+          </div>
         </div>
-      </div>
-    </PageBlock>
-  </Layout >
+
+      </PageBlock>
+    </Layout >
+  </>
 }
 
 export default AdminExample

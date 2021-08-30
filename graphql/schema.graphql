@@ -1,3 +1,23 @@
 type Query {
-  helloworld: String
+  # Cache control can only be set at root fields
+  lead(email: String!): Lead
+  leadsMock(from: Int = 0, to: Int = 4): [Lead] @cacheControl(scope: PUBLIC, maxAge: SHORT)
+  leads: [Lead] @cacheControl(scope: PUBLIC, maxAge: SHORT)
+  totalLeads: Int
+}
+
+type Mutation {
+  addCliente(nome: String!,email: String!,telefone: String!): Lead
+  editCliente(email: String!): Lead
+  deleteCliente(email: String): Lead
+}
+
+type Lead {
+  clienteId: String
+  nome: String
+  email: String
+  telefone: String
+  tipo: String
+  created_at: String
+  updated_at: String
 }

@@ -39,7 +39,7 @@ const AdminExample: FC = () => {
   }
 
   function Status({ tipo }: any) {
-    const type = tipo === 'prospecto' ? 'success' : 'neutral'
+    const type = tipo === 'cliente' ? 'success' : 'neutral'
     return <Tag type={type}>{tipo}</Tag>
   }
 
@@ -59,38 +59,35 @@ const AdminExample: FC = () => {
     >
       <PageBlock variation="full">
         <div className="container">
-          <div className="container">
-            {loading ? (<Progress type="steps" steps={['inProgress']} />) :
-              (
+          {loading ? (<Progress type="steps" steps={['inProgress']} />) :
+            (
 
-                < Table
-                  fullWidth
-                  schema={defaultSchema}
-                  items={data.leads}
-                  density="high"
-                  totalizers={[
-                    {
-                      label: 'Total',
-                      value: data.totalLeads,
-                    },
-                    {
-                      label: 'Clientes',
-                      value: data.totalClientes,
-                      iconBackgroundColor: '#ebebeb',
-                      icon: <IconUser color="#798999" size={14} />,
-                    },
-                    {
-                      label: 'Prospects',
-                      value: data.totalProspectos,
-                      iconBackgroundColor: '#eafce3',
-                      icon: <IconUser color="#79B03A" size={14} />,
-                    },
-                  ]}
-                />
-              )}
-          </div>
+              < Table
+                fullWidth
+                schema={defaultSchema}
+                items={data.leads}
+                density="high"
+                totalizers={[
+                  {
+                    label: 'Total',
+                    value: data.totalLeads,
+                  },
+                  {
+                    label: 'Clientes',
+                    value: data.totalClientes,
+                    iconBackgroundColor: '#ebebeb',
+                    icon: <IconUser color="#79B03A" size={14} />,
+                  },
+                  {
+                    label: 'Prospects',
+                    value: data.totalProspectos,
+                    iconBackgroundColor: '#eafce3',
+                    icon: <IconUser color="#798999" size={14} />,
+                  }
+                ]}
+              />
+            )}
         </div>
-
       </PageBlock>
     </Layout >
   </>

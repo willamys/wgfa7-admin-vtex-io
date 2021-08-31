@@ -4,7 +4,7 @@
 
 The project was created in the Hiring Coders Program. The aim was develop a Admin landing page.
 
-You can see the result in [link](https://wgfa7--hiringcoders2021.myvtex.com/admin/iotraining)
+You can see the result in [link](https://corebiz--hiringcoders2021.myvtex.com/admin/iotraining) (Cliente->Admin Landing-> Clientes) 
  
  ### Admin Landing Page
  
